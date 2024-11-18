@@ -6,9 +6,7 @@ def get_info(name):
         for testN in range(num):
             flag = False
             schedule = list(map(int, file.readline().split(' ')))
-            print(schedule)
             for n in range(1, schedule[0]*2, 2):
-                print(schedule[n], schedule[n+1])
                 for i in range(schedule[n], schedule[n+1]):
                     if not slots[i]:
                         slots[i] = 1
