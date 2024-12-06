@@ -24,3 +24,4 @@ while True:
 
 print(cap)
 print(o - cap[0])
+# 1 4 5 7 11
