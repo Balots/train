@@ -18,7 +18,7 @@ def delimiter2(mas):
 
 
 while True:
-    cap = delimiter2(cap)
+    cap = delimiter(cap)
     if len(cap) == 1:
         break
 

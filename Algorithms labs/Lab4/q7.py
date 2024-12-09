@@ -39,3 +39,4 @@ t.show()
 t.show_prev()
 print(t.request(1, 1, 8))
 
+# segment tree

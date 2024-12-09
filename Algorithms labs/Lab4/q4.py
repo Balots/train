@@ -4,7 +4,7 @@ s = ['A', 'AB', 'B', 'AA', 'ABC']
 class Root:
     def __init__(self, elem):
         self.elem = elem
-        self.images = [elem]
+        self.images = [elem*2]
 
     def get_images(self, *roots):
         self.images += f' {self.elem}'.join(roots).split(' ')
@@ -28,9 +28,9 @@ for elem in s:
 for root in tree.roots:
     root.get_images(*map(lambda x: x.elem, tree.roots))
 
-
 print(tree.get_images())
 
-
-
-
+for root in tree.roots:
+    for image in root.images:
+        if image in s and len(image) > 1:
+            print(image)
