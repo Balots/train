@@ -1,4 +1,4 @@
-s = ['A', 'AB', 'B', 'AA', 'ABC']
+s = ['ABC', 'DEFG', 'AB', 'ABCAB', 'DEFGA', 'FG', 'ABFG', 'ABCAFG', 'FGFG', 'ABABC']
 
 
 class Root:

@@ -2,33 +2,25 @@ class Deque:
     __LOGGING = 0
 
     def __init__(self, *elements):
-        if not self.__LOGGING:
-            self.__head = [elements[0]]
-            self.__tail = [elements[-1]]
-            self.__inter = [elements[i] for i in range(1, len(elements) - 1)]
-            self.__LOGGING = 1
-        self.__deque = self.__head + self.__inter + self.__tail
+        self.__head = 0
+        self.__tail = len(elements)
+        self.__deque = [x for x in elements]
 
     def push_front(self, elem):
-        self.__head = [elem]
-        self.__deque = self.__head + self.__deque
+        self.__deque = [elem] + self.__deque
 
     def push_back(self, elem):
-        self.__tail = [elem]
-        self.__deque = self.__deque + self.__tail
+        self.__deque = self.__deque + [elem]
+        self.__tail += 1
 
     def pop_front(self):
-        self.__head = []
-        self.__init__()
-        self.__head = [self.__deque[0]]
+        self.__head += 1
 
     def pop_back(self):
-        self.__tail = []
-        self.__init__()
-        self.__tail = [self.__deque[-1]]
+        self.__tail -= 1
 
     def show(self):
-        print(self.__deque)
+        print([self.__deque[i] for i in range(self.__head, self.__tail)])
 
 a = Deque(1, 2, 3, 4, 5)
 a.show()

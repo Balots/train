@@ -3,11 +3,11 @@ from array import array
 
 file = open('3.txt', 'r+')
 data = map(int, file.readlines())
-m = array('i', [*data])
-file.truncate(0)
+m = array('i', [*data]) # get data to array
+file.truncate(0) # clear document
 
 
-def process_creator(input, output):
+def process_creator(input, output):# Our interface to create processes
     fun, arr = input.get()
     print(fun, arr)
     output.put(fun(arr))
@@ -16,12 +16,12 @@ def process_creator(input, output):
 
 class Numbers:
     @staticmethod
-    def get_ranges(arr, num):
+    def get_ranges(arr, num): # Divide array on num sub-arrays
         ran = len(arr)//num
         return [arr[(i-1)*ran:i*ran] for i in range(1, num+1)]
 
     @staticmethod
-    def quicksort(arr):
+    def quicksort(arr): # QuickSort algorithm. Just like python sort()
         if len(arr) <= 1:
             return arr
         else:
@@ -33,24 +33,24 @@ class Numbers:
 
 def main(fun, ar):
     NUMBER_OF_PROCCES = 5
-    TASKS = [(fun, arr) for arr in Numbers.get_ranges(ar, NUMBER_OF_PROCCES)]
+    TASKS = [(fun, arr) for arr in Numbers.get_ranges(ar, NUMBER_OF_PROCCES)] # Create tasks for queue
 
-    proc_run = Queue()
+    proc_run = Queue() # Create queues
     proc_done = Queue()
 
     for task in TASKS:
-        proc_run.put(task)
+        proc_run.put(task) # put tasks on queue
 
     for _ in range(NUMBER_OF_PROCCES):
-        Process(target=process_creator, args=(proc_run, proc_done)).start()
+        Process(target=process_creator, args=(proc_run, proc_done)).start() #start tasks from queue
 
     return proc_done
 
 
 if __name__ == '__main__':
-    proc_done = main(Numbers.quicksort, m)
+    proc_done = main(Numbers.quicksort, m) # get results
     result = []
     for _ in range(5):
-        result += proc_done.get()
+        result += proc_done.get() # put them to list
     for elem in result:
-        file.write(f'{elem}\n')
+        file.write(f'{elem}\n') # write them to the document

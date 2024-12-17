@@ -36,7 +36,7 @@ class Interface:
 
     def main_loop(self):
         while True:
-            command = input('ббедхре йнллюмдс: ')
+            command = input('ENTER COMMAND: ')
             if command:
                 self.get_comand(self.interpretend(command))
             else:
