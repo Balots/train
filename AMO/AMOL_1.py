@@ -1,5 +1,4 @@
 import numpy as np
-from DistUpgrade.DistUpgradeViewGtk3 import vte291
 
 # 1
 v = np.array([3, 4])
