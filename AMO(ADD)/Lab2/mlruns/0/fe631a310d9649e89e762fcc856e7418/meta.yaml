@@ -1,0 +1,15 @@
+artifact_uri: file:///home/balots/PycharmProjects/train/AMO%28ADD%29/Lab2/mlruns/0/fe631a310d9649e89e762fcc856e7418/artifacts
+end_time: 1739857459528
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fe631a310d9649e89e762fcc856e7418
+run_name: capricious-gull-853
+run_uuid: fe631a310d9649e89e762fcc856e7418
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739857457258
+status: 3
+tags: []
+user_id: balots
