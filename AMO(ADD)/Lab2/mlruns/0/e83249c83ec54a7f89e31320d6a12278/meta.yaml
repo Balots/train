@@ -1,0 +1,15 @@
+artifact_uri: file:///home/balots/PycharmProjects/train/AMO%28ADD%29/Lab2/mlruns/0/e83249c83ec54a7f89e31320d6a12278/artifacts
+end_time: 1740632154186
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e83249c83ec54a7f89e31320d6a12278
+run_name: gaudy-dog-761
+run_uuid: e83249c83ec54a7f89e31320d6a12278
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740632152284
+status: 3
+tags: []
+user_id: balots

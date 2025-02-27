@@ -1,0 +1,15 @@
+artifact_uri: file:///home/balots/PycharmProjects/train/AMO%28ADD%29/Lab2/mlruns/0/ca5880c0565140ea9216f9354418de72/artifacts
+end_time: 1740631777559
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ca5880c0565140ea9216f9354418de72
+run_name: bouncy-grouse-659
+run_uuid: ca5880c0565140ea9216f9354418de72
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740631775603
+status: 3
+tags: []
+user_id: balots

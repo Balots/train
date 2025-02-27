@@ -1,0 +1,15 @@
+artifact_uri: file:///home/balots/PycharmProjects/train/AMO%28ADD%29/Lab2/mlruns/0/c276c97460224c27b86c23a63d226b86/artifacts
+end_time: 1740631704504
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c276c97460224c27b86c23a63d226b86
+run_name: smiling-bug-593
+run_uuid: c276c97460224c27b86c23a63d226b86
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740631702564
+status: 3
+tags: []
+user_id: balots
