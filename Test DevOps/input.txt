@@ -1,0 +1,20 @@
+[2025-01-31 21:35:27.913140 MSD +000] GET t_id 0 /pet ?color=orange &test=True &id=31 HTTP/3.0 200 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 873ms
+[2025-01-31 21:35:27.913140 MSK +000] DELETE t_id 1 /pet ?number=3 &id=25 HTTP/1.1 200 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 968ms
+[2025-01-31 21:35:27.913140 SAMT +000] DELETE t_id 2 /pet ?number=1 &id=25 HTTP/1.1 409 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 364ms
+[2025-01-31 21:35:27.913140 MSK +000] GET t_id 3 /status ?format=raw  HTTP/3.0 200 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 712ms
+[2025-01-31 21:35:27.913140 MSD +000] POST t_id 4 /pet ?test=False &number=3 &color=gray &id=21 HTTP/3.0 409 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 426ms
+[2025-01-31 21:35:27.913140 MSD +000] DELETE t_id 5 /pet ?test=False &id=29 HTTP/1.1 500 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 534ms
+[2025-01-31 21:35:27.913140 MSD +000] DELETE t_id 6 /pet ?test=False &color=black &id=40 HTTP/3.0 200 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 419ms
+[2025-01-31 21:35:27.913140 MSK +000] DELETE t_id 7 /pet ?color=orange &test=False &id=30 HTTP/3.0 409 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 463ms
+[2025-01-31 21:35:27.913140 MSK +000] GET t_id 8 /status ?format=raw  HTTP/3.0 200 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 282ms
+[2025-01-31 21:35:27.913140 MSD +000] GET t_id 9 /status ?format=plaintext  HTTP/2.0 409 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 597ms
+[2025-01-31 21:35:27.913140 MSK +000] DELETE t_id 10 /pet ?color=black &number=1 &id=31 HTTP/1.1 409 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 106ms
+[2025-01-31 21:35:27.913140 SAMT +000] POST t_id 11 /pet ?number=3 &test=True &color=black &id=40 HTTP/1.1 500 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 968ms
+[2025-01-31 21:35:27.913140 MSD +000] DELETE t_id 12 /pet ?color=orange &test=False &id=35 HTTP/1.1 500 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 879ms
+[2025-01-31 21:35:27.913140 MSK +000] DELETE t_id 13 /pet ?number=2 &test=False &color=orange &id=21 HTTP/2.0 200 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 288ms
+[2025-01-31 21:35:27.913140 MSK +000] GET t_id 14 /status ?format=plaintext  HTTP/2.0 500 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 520ms
+[2025-01-31 21:35:27.913140 SAMT +000] GET t_id 15 /status ?format=plaintext  HTTP/3.0 200 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 515ms
+[2025-01-31 21:35:27.913140 SAMT +000] GET t_id 16 /status ?format=raw  HTTP/2.0 500 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 163ms
+[2025-01-31 21:35:27.913140 MSK +000] GET t_id 17 /status ?format=pretty  HTTP/3.0 200 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:59.0) Gecko/20100101 Firefox/59.0 642ms
+[2025-01-31 21:35:27.913140 SAMT +000] DELETE t_id 18 /pet ?test=False &id=32 HTTP/1.1 200 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 864ms
+[2025-01-31 21:35:27.913140 MSK +000] DELETE t_id 19 /pet ?test=True &id=21 HTTP/2.0 200 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0 97ms

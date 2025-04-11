@@ -36,3 +36,11 @@ print(b.linked_list)
 a.updating('e', mod='de')
 print(a.linked_list)
 print(b.linked_list)
+
+class Her:
+    def get_(self):
+        print('zhopa')
+
+
+a = Her()
+a.get_()
