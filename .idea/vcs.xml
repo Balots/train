@@ -4,5 +4,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Algorithms labs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Algorithms labs/Lab2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ML/example-versioning" vcs="Git" />
   </component>
 </project>
