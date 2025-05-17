@@ -1,0 +1,501 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{samgtu}
+         [2017/02/19 v1.0]
+\RequirePackage{hyperref}
+\RequirePackage{textcomp}
+\RequirePackage{ccicons}
+\RequirePackage{ifthen}
+\RequirePackage{fancyhdr}
+\RequirePackage{nccsect}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{samgtu-bib}
+
+\newcommand{\orcidlogo}{\includegraphics[scale=.12]{orcid_bw}}
+\newcommand{\OAlogo}{\raisebox{-0.25em}[0pt][0pt]{\includegraphics[scale=.011]{OAlogo_bw}}}
+\newcommand{\DOIlogo}{doi:\,}
+
+% Set page parameters
+\special{papersize=182mm,257mm}
+\hoffset-1in
+\voffset-1in
+\topmargin15mm
+\headheight5mm
+\headsep5mm
+\footskip8mm
+\oddsidemargin25.5mm
+\evensidemargin\oddsidemargin
+\parskip0cm
+\voffset-1in
+\hoffset-1in
+\setlength{\textwidth}{135mm}
+\setlength{\textheight}{210mm}
+\renewcommand{\baselinestretch}{0.9}
+
+\newcommand{\pdfcrop}{
+\makeatletter
+\paperheight240mm
+\paperwidth146mm 
+\hoffset-1in
+\voffset-1in
+\topmargin5mm
+\headheight5mm
+\headsep5mm
+\footskip8mm
+\oddsidemargin14pt
+\evensidemargin\oddsidemargin
+\parskip0cm
+\voffset-1in
+\hoffset-1in
+\setlength{\textwidth}{135mm}
+\setlength{\textheight}{210mm}
+\renewcommand{\baselinestretch}{0.9}
+\makeatother
+\renewcommand{\orcidlogo}{\includegraphics[scale=.12]{orcid}}
+\renewcommand{\OAlogo}{\raisebox{-0.25em}[0pt][0pt]{\includegraphics[scale=.011]{OAlogo}}}
+\renewcommand{\DOIlogo}{\raisebox{-0.32em}[0pt][0pt]{\includegraphics[scale=.1]{DOIlogo}}}}
+
+\newcommand{\samgtupubl}{
+\makeatletter
+\special{papersize=182mm,257mm}
+\paperheight257mm
+\paperwidth182mm 
+\hoffset-1in
+\voffset-1in
+\topmargin5mm % For SamGTU Publisinhg Co.
+\headheight5mm
+\headsep5mm
+\footskip8mm
+\oddsidemargin25.5mm
+\evensidemargin\oddsidemargin
+\parskip0cm
+\voffset-1in
+\hoffset-1in
+\setlength{\textwidth}{135mm}
+\setlength{\textheight}{210mm}
+\renewcommand{\baselinestretch}{0.9}
+\makeatother
+\hypersetup{
+colorlinks=true,
+linkcolor=black,
+citecolor=black,
+urlcolor=black,
+filecolor=black}
+\renewcommand{\orcidlogo}{\includegraphics[scale=.12]{orcid_bw}}
+\renewcommand{\OAlogo}{\raisebox{-0.25em}[0pt][0pt]{\includegraphics[scale=.011]{OAlogo_bw}}}
+\renewcommand{\DOIlogo}{doi:\,}}
+\renewcommand{\thepage}{{\small\arabic{page}}}
+% Page parameters set
+
+\newif\if@draft
+\@draftfalse
+\newcommand{\draft}{\@drafttrue}
+\newcommand{\nodraft}{\@draftfalse}
+
+\newcommand{\thefirstpage}{}
+\newcommand{\thelastpage}{}
+\newcommand{\FirstPage}[1]{\setcounter{page}{#1}\renewcommand{\thefirstpage}{#1}}
+\newcommand{\LastPage}[1]{\renewcommand{\thelastpage}{#1}}
+
+\newcommand{\JournalYear}{201x}
+\newcommand{\JournalVolume}{X}
+\newcommand{\JournalNumber}{y}
+\newcommand{\ruConferenceName}{Название мероприятия}
+\newcommand{\enConferenceName}{Tenth Russian Conference on Solid Mechanics}
+\newcommand{\ruProcInfo}{20-26 июня 2024~г.}
+\newcommand{\enProcInfo}{September, 18--22,  2017}
+\newcommand{\ruCity}{Екатеринбург}
+\newcommand{\enCity}{Samara}
+\newcommand{\ruOrgName}{УрФУ}
+\newcommand{\enOrgName}{Samara State Technical Univ.}
+\newcommand{\ruCountry}{Россия}
+\newcommand{\enCountry}{Russian Federation}
+\newcommand{\ruPubName}{\ruCity: \ruOrgName}
+\newcommand{\enPubName}{\enOrgName, \enCity}
+
+\newcommand{\RuJournalName}{Материалы X Всероссийской научной конференции по механике деформируемого твердого тела}
+\newcommand{\EnJournalName}{Proceedings of the \enConferenceName}
+
+\newcommand{\CAuthor}{~\CAuthlogo}
+
+\newcommand{\orcid}[1]{\/ \href{http://orcid.org/#1}{\orcidlogo} \url{http://orcid.org/#1}\\}
+\newcommand{\CAuthlogo}{\raisebox{0em}[0pt][0pt]{\includegraphics[scale=.13]{CAuth}}}
+
+\newcommand{\RuJournal}{%
+\parbox[c][6mm][s]{\textwidth}{\renewcommand{\bfdefault}{bx}\scriptsize  \bf \ruConferenceName \vfill \ruProcInfo, \ruCity, \ruCountry \hfill%
+\renewcommand{\bfdefault}{b}}\vspace{-5mm}}
+
+\newcommand{\EnJournal}{%
+\parbox[c][6mm][s]{\textwidth}{\renewcommand{\bfdefault}{bx}\scriptsize  \bf \enConferenceName \vfill \enProcInfo, \enCity, \enCountry \hfill%
+\renewcommand{\bfdefault}{b}}\vspace{-5mm}}
+
+\newcommand{\theudc}{}
+\newcommand{\udc}[1]{%
+\renewcommand{\theudc}{{\medskip\par \footnotesize\bfseries \CYRU\CYRD\CYRK~\ignorespaces #1}}}
+
+\newcommand{\themsc}{}
+\newcommand{\msc}[1]{%
+\renewcommand{\themsc}{{\medskip\par \footnotesize\bfseries MSC:~\ignorespaces #1}}}
+
+\newcommand{\therutitle}{}
+\newcommand{\RuTitleInTitlepage}{}
+\newcommand{\RuTitleInContents}{}
+\newcommand{\rutitle}[1]{%
+\renewcommand{\therutitle}{{\scriptsize\slshape #1}}
+\renewcommand{\RuTitleInTitlepage}{{\large{\bfseries{\raggedright #1\par}}}}
+\renewcommand{\RuTitleInContents}{#1}}
+\newcommand{\rutitleshort}[1]{%
+\renewcommand{\therutitle}{{\scriptsize\slshape #1}}}
+
+\newcommand{\theentitle}{}
+\newcommand{\EnTitleInTitlepage}{}
+\newcommand{\EnTitleInContents}{}
+\newcommand{\entitle}[1]{%
+\renewcommand{\theentitle}{{\scriptsize\slshape #1}}
+\renewcommand{\EnTitleInTitlepage}{{\large{\bfseries{\raggedright #1\par}}}}
+\renewcommand{\EnTitleInContents}{#1}}
+\newcommand{\entitleshort}[1]{%
+\renewcommand{\theentitle}{{\scriptsize\slshape #1}}
+}
+
+\newcommand{\theruauthor}{}
+\newcommand{\RuAuthorInTitlepage}{}
+\newcommand{\RuAuthorInContents}{}
+\newcommand{\ruauthor}[2]{%
+\renewcommand{\theruauthor}{{\scriptsize\slshape #2}}
+\renewcommand{\RuAuthorInTitlepage}{#1}
+\renewcommand{\RuAuthorInContents}{#2}}
+
+\newcommand{\theenauthor}{}
+\newcommand{\EnAuthorInTitlepage}{}
+\newcommand{\EnAuthorInContents}{}
+\newcommand{\enauthor}[2]{%
+\renewcommand{\theenauthor}{{\scriptsize\slshape #2}}
+\renewcommand{\EnAuthorInTitlepage}{#1}
+\renewcommand{\EnAuthorInContents}{#2}}
+
+\def\affil#1{\unskip$^{#1}$}
+
+\newcounter{@inst}
+\newdimen\instindent
+\def\ruaffil#1{\gdef\@institute{#1}}
+\def\ruaffilname{\par
+\begingroup
+\parindent=0pt
+\parskip=0pt
+\setcounter{@inst}{1}%
+\def\and{\par\stepcounter{@inst}%
+\noindent
+\hbox to\instindent{\hss$^{\the@inst}$\enspace}\ignorespaces}%
+\setbox0=\vbox{\@institute}
+\ifnum\c@@inst>9\relax\setbox0=\hbox{$^{88}$\enspace}%
+\else\setbox0=\hbox{$^{8}$\enspace}\fi
+\instindent=\wd0\relax
+\ifnum\c@@inst=1\relax
+\else
+\setcounter{@inst}{1}%
+\noindent
+\hbox to\instindent{\hss$^{\the@inst}$\enspace}\ignorespaces
+\fi
+\ignorespaces
+\@institute\par
+\endgroup}
+
+\newcounter{@enginst}
+\newdimen\enginstindent
+\def\enaffil#1{\gdef\@enginstitute{#1}}
+\def\enaffilname{\par
+\begingroup
+\parindent=0pt
+\parskip=0pt
+\setcounter{@enginst}{1}%
+\def\and{\par\stepcounter{@enginst}%
+\noindent
+\hbox to\enginstindent{\hss$^{\the@enginst}$\enspace}\ignorespaces}%
+\setbox0=\vbox{\@enginstitute}
+\ifnum\c@@inst>9\relax\setbox0=\hbox{$^{88}$\enspace}%
+\else\setbox0=\hbox{$^{8}$\enspace}\fi
+\enginstindent=\wd0\relax
+\ifnum\c@@enginst=1\relax
+\else
+\setcounter{@enginst}{1}%
+\noindent
+\hbox to\enginstindent{\hss$^{\the@enginst}$\enspace}\ignorespaces
+\fi
+\ignorespaces
+\@enginstitute\par
+\endgroup}
+
+\newcommand{\fullauthor}[1]{%
+\vspace{.3em}\par\noindent{\it#1}\ignorespaces}
+\newcommand{\regalia}[1]{%
+{#1}\ignorespaces}
+\newcommand{\position}[2][s]{%
+\ifthenelse{\equal{#1}{s}}{;~{#2}\ignorespaces}{{#2}\ignorespaces}}
+\newcommand{\dept}[2][s]{%
+\ifthenelse{\equal{#1}{s}}{;~{#2}\ignorespaces}{{#2}\ignorespaces}}
+\newcommand{\email}[2][s]{%
+;\ifthenelse{\equal{#1}{s}}{~e-mail:\,\href{mailto:#2}{\texttt{\nolinkurl{#2}}}}{\newline e-mail:\,\href{mailto:#2}{\texttt{\nolinkurl{#2}}}}}
+
+\newcommand{\RuCitation}{\noindent\textbf{\CYRO\cyrb\cyrr\cyra\cyrz\cyre\cyrc\ \cyrd\cyrl\cyrya\ \cyrc\cyri\cyrt\cyri\cyrr\cyro\cyrv\cyra\cyrn\cyri\cyrya\\} {\RuAuthorInContents} {\RuTitleInContents}~/ \textit{\RuJournalName} (\ruProcInfo, \ruCity, \ruCountry). \ruPubName,  \JournalYear. \CYRS.~\thefirstpage--\thelastpage.}
+
+\newcommand{\EnCitation}{\noindent\textbf{Please cite this article in press as:\\} {\EnAuthorInContents} {\EnTitleInContents}, In: \textit{\EnJournalName} (\enProcInfo, \enCity, \enCountry), \enPubName,  \JournalYear,  pp.~\thefirstpage--\thelastpage\ (In Russian).}
+
+\newcommand{\theruauthorsdetails}{}
+\newcommand{\ruauthorsdetails}[2]{%
+\renewcommand{\theruauthorsdetails}{\footnotetext{
+\vspace{-1em}\\
+\RuCitation
+\if@draft
+\vspace{-1.5em}\\
+\raisebox{1em}[0pt][0pt]{\colorbox{yellow}{\textcolor{red}{\bf Early View Publication; These are NOT the final page numbers!!!}}}
+\fi \vspace{.3em}\\
+\ifthenelse{\equal{#1}{1}}{\textbf{Сведения об авторе}}{\textbf{Сведения об авторах}}#2\vspace{.3em}}}}
+
+\newcommand{\theenauthorsdetails}{}
+\newcommand{\enauthorsdetails}[2]{%
+\renewcommand{\theenauthorsdetails}{\footnotetext{
+\vspace{-1em}\\
+\EnCitation\vspace{.3em}\\
+\ifthenelse{\equal{#1}{1}}{\textbf{Author's Details:}}{\textbf{Authors' Details:}}#2\vspace{.3em}}}}
+
+\newcommand{\therukeywords}{}
+\newcommand{\theenkeywords}{}
+\newcommand{\rukeywords}[1]{%
+\renewcommand{\therukeywords}{\noindent \vskip2mm {{\noindent\bfseries Ключевые слова:} #1.}}}
+\newcommand{\enkeywords}[1]{%
+\renewcommand{\theenkeywords}{\noindent \vskip2mm {{\noindent\bfseries Keywords:} #1.}}}
+
+\newcommand{\theruabstract}{}
+\newcommand{\theenabstract}{}
+\newcommand{\ruabstract}[1]{%
+\renewcommand{\theruabstract}{\ignorespaces#1}}
+\newcommand{\enabstract}[1]{%
+\renewcommand{\theenabstract}{\ignorespaces\selectlanguage{english}#1}}
+
+\newcommand{\addtocontent}[2]{%
+\addcontentsline{toc}{section}{{#1} #2\medskip}}
+\renewcommand{\tableofcontents}{%
+{\noindent \rule{0mm}{18pt}\Large \bf Содержание\newline}\@starttoc{toc}}
+\newcommand{\makecontents}{%
+{\small\tableofcontents}}
+
+\newcommand{\addtoengcontent}[2]{%
+\addcontentsline{etoc}{section}{{#1} #2\medskip}}
+\newcommand{\tableofengcontents}{%
+{\noindent\rule{0mm}{35pt}\Large \bf Contents\newline}\@starttoc{etoc}}
+\newcommand{\makeengcontents}{%
+{\small\tableofengcontents}}
+
+\newcounter{sec}
+\newcommand{\Section}[2][s]{%
+\smallskip\ifthenelse{\equal{#1}{s}}{\stepcounter{sec}{\bf \thesec. #2.}}{{\bf #2.}}}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{sec}{section}
+\renewcommand{\theequation}{\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thesec}{\arabic{sec}}
+\newcommand{\clear}{%
+\refstepcounter{section}
+\setcounter{footnote}{0}}
+
+\makeatletter
+\renewcommand{\@makefnmark}{}
+\makeatother
+
+\newcommand{\makerutitle}{%
+\selectlanguage{russian}%
+\normalsize 
+\normalfont
+\phantomsection%
+\addtocontent{{\it\RuAuthorInContents}\hspace{2.5mm}}{``\RuTitleInContents''}
+\addtoengcontent{{\it\EnAuthorInContents}\hspace{2.5mm}}{``\selectlanguage{english}\EnTitleInContents''}
+\chead[\fancyplain{}{\selectlanguage{russian}\theruauthor}]{\fancyplain{}{\selectlanguage{russian} \therutitle}}
+\rhead[]{\fancyplain{\RuJournal}{}}
+\lhead[\fancyplain{\RuJournal}{}]{}
+\cfoot[]{}
+\lfoot[\thepage]{}
+\rfoot[]{\thepage}
+\renewcommand{\plainheadrulewidth}{0.7pt}
+\renewcommand{\headrulewidth}{0.7pt}
+\pagestyle{fancyplain}
+\thispagestyle{plain}
+\clear
+\hskip-7mm
+\begin{minipage}[t]{125mm}
+\vskip.5mm
+\noindent\theudc
+\vskip2mm
+\RuTitleInTitlepage
+\end{minipage}
+\par
+\theruauthorsdetails
+\begin{minipage}[t]{125mm}
+\vskip4mm
+{\renewcommand{\bfdefault}{bx}\noindent\small\textbf{\emph{\RuAuthorInTitlepage}}\renewcommand{\bfdefault}{b}}  
+\vskip2mm
+{\scriptsize \ruaffilname}
+\end{minipage}
+\vskip2mm
+\renewcommand{\abstractname}{Аннотация}
+\begin{abstract}
+\theruabstract
+\therukeywords\vskip1mm\par\noindent 
+\end{abstract}
+\RusRef\normalsize}
+
+\newcommand{\makeentitle}{%
+\selectlanguage{english}%
+\normalsize 
+\normalfont
+%\chead[\fancyplain{}{\selectlanguage{english}\theenauthor}]{\fancyplain{}{\selectlanguage{english} \theentitle}}
+%\rhead[]{\fancyplain{\EnJournal}{}}
+%\lhead[\fancyplain{\EnJournal}{}]{}
+%\cfoot[]{}
+%\lfoot[\thepage]{}
+%\rfoot[]{\thepage}
+%\renewcommand{\plainheadrulewidth}{0.7pt}
+%\renewcommand{\headrulewidth}{0.7pt}
+%\pagestyle{fancyplain}
+%\thispagestyle{plain}
+\clear
+\hskip-7mm
+\begin{minipage}[t]{125mm}
+\vskip.5mm
+\noindent\themsc
+\vskip2mm
+\EnTitleInTitlepage
+\end{minipage}
+\par
+\theenauthorsdetails
+\begin{minipage}[t]{125mm}
+\vskip4mm
+{\renewcommand{\bfdefault}{bx}\noindent\small\textbf{\emph{\EnAuthorInTitlepage}}\renewcommand{\bfdefault}{b}}  
+\vskip2mm
+{\scriptsize \enaffilname}
+\end{minipage}
+\vskip2mm
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+\theenabstract
+\theenkeywords\vskip1mm
+\end{abstract}
+\EngRef\normalsize}
+
+
+\newcommand{\ForPeerReview}{%
+\renewcommand{\theruauthorsdetails}{}
+\renewcommand{\theenauthorsdetails}{}
+\renewcommand{\RuAuthorInTitlepage}{Для двойного слепого рецензирования}
+\renewcommand{\RuAuthorInContents}{Для двойного слепого рецензирования}
+\renewcommand{\theruauthor}{{\scriptsize\slshape Для двойного слепого рецензирования}}
+\renewcommand{\EnAuthorInTitlepage}{For double-blind per review}
+\renewcommand{\EnAuthorInContents}{For double-blind per review}
+\renewcommand{\theenauthor}{{\scriptsize\slshape For double-blind per review}}
+\ruaffil{}\enaffil{}}
+
+% Environments' Definitions
+\newenvironment{newthm}[2][s]
+{\vskip.5mm\it\ifthenelse{\equal{#1}{s}}{{\small\sc#2.}}{{\small\sc#2 #1.}}}{\vskip.5mm}
+
+\newenvironment{proof}[1][s]
+{\vskip.5mm
+\ifthenelse{\equal{#1}{s}}{{\it Д\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о. }}{{\it{#1}. }}}{$\square$}
+
+\newenvironment{task}[1][s]
+{\vskip.5mm \it  \ifthenelse{\equal{#1}{s}}{{\small \sc Задача. }}
+{{\small \sc Задача #1. }}}{}
+
+\newenvironment{theorem}[1][s]
+{\vskip.5mm \it \ifthenelse{\equal{#1}{s}}{{\small \sc Теорема. }}
+{{\small \sc Теорема #1. }}}{\vskip.5mm}
+
+\newenvironment{remark}[1][s]
+{\smallskip\ifthenelse{\equal{#1}{s}}{{\small \sc Замечание. }}
+{{\small \sc Замечание #1.}}}{\smallskip}
+
+\newenvironment{example}[1][s]
+{\vskip.5mm \ifthenelse{\equal{#1}{s}}{{\small \sc Пример. }}
+{{\small \sc Пример #1. }}}{}
+
+\newenvironment{lemma}[1][s]
+{\vskip.5mm \it \ifthenelse{\equal{#1}{s}}{{\small \sc Лемма. }}
+{{\small \sc Лемма #1. }}}{}
+
+\newenvironment{definition}[1][s]
+{\vskip.5mm \ifthenelse{\equal{#1}{s}}{{\small \sc Определение. }}
+{{\small \sc Определение #1. }}}{}
+
+\newcommand{\AdditionalContent}[2]{{%
+\vskip2mm\par\small {\bf#1.}~\ignorespaces#2}}
+
+% Lists' Definitions
+\makeatletter
+\def\@listI{\leftmargin\leftmargini
+\topsep\z@ \parsep\z@ \itemsep\z@}
+
+\def\@listii{\leftmargin\leftmarginii
+\labelwidth\leftmarginii\advance\labelwidth-\labelsep
+\topsep\z@ \parsep\z@ \itemsep\z@}
+
+\def\itemize{\ifnum\@itemdepth>\@ne \@toodeep \else \advance\@itemdepth\@ne
+\leftmarginii 30\p@
+\edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+\list{\csname\@itemitem\endcsname}{\def\makelabel##1{\hss\llap{##1}}}\fi}
+
+\def\enumerate{\ifnum\@enumdepth>\@ne \@toodeep \else
+\advance\@enumdepth\@ne
+\settowidth\leftmargini {\indent 9)\enskip}%
+\leftmarginii 27\p@
+\edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+{\csname label\@enumctr\endcsname}{\usecounter
+{\@enumctr}\def\makelabel##1{\hss\llap{##1}}}\fi}
+\makeatother
+
+\def\labelitemi{--}
+\def\labelitemii{--}
+\def\labelenumi{\theenumi)}
+\def\labelenumii{\theenumii)}
+\def\theenumi{\arabic{enumi}}
+\def\theenumii{\alph{enumii}}
+
+% NCC's definitions
+\DeclareTOCEntry{1}{}{}{9}{}[]% section
+\DeclareTOCEntry{1}{}{\hspace{-5mm}}{9}{}[]% section
+
+\captionstyle[table]{centerlast}
+\captiontagstyle[table]{right}
+
+\captionstyle[figure]{centerlast}
+\captiontagsuffix[figure]{.\hspace{0.7em plus 0.2em minus 0.1em}}
+
+\makeatletter
+\DeclareSection{-1}{figure}{\footnotesize}{5pt}{\z@}{\footnotesize}
+\makeatother
+
+\renewcommand{\footnote}[1]{\footnotemark{$^{\thefootnote}$} \footnotetext{#1}}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+\newcommand{\bigcom}{\text{\usefont{T2A}{cmfib}{m}{n}\large{\raisebox{1pt}{,}}}} 
+\newcommand{\bigdotcom}{\text{\usefont{T2A}{cmfib}{m}{n}\large{\raisebox{3pt}{.}\hskip -1.55mm%
+\raisebox{1pt}{,}}}}
+
+\allowdisplaybreaks[4]
+
+\newcommand{\rupid}[2]{\href{http://www.mathnet.ru/php/person.phtml?option_lang=rus&personid=#1}{#2}}
+\newcommand{\enpid}[2]{\href{http://www.mathnet.ru/php/person.phtml?option_lang=eng&personid=#1}{#2}}
+
+\newcommand{\ruaffid}[2]{\href{http://www.mathnet.ru/php/organisation.phtml?orgid=#1&option_lang=rus}{#2}}
+\newcommand{\enaffid}[2]{\href{http://www.mathnet.ru/php/organisation.phtml?orgid=#1&option_lang=eng}{#2}}
+
+\newcommand{\nopagenumber}{\cfoot[]{}\lfoot[]{}\rfoot[]{}}
