@@ -1,13 +1,11 @@
-# app/Dockerfile
-#базовый образ
-FROM python:3.10-slim 
-#рабочая директория проекта
-WORKDIR /fast_app            
-# RUN apt-get update && apt-get install 
-# COPY requirements.txt .
-COPY . .    
+FROM python:3.9-slim 
+
+WORKDIR /model           
+COPY /AppFiles ./
+
+RUN pip3 install --upgrade pip
 RUN pip3 install -r ./requirements.txt
-#порт для взаимодействия с контейнером
-EXPOSE 8005
-#
-CMD ["python", "./main.py"] 
+
+EXPOSE 3000
+
+CMD ["python", "main.py"] 
